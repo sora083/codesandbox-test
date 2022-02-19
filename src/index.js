@@ -1,5 +1,6 @@
 import './styles.css';
 
+// TODOの追加
 const onClickAdd = () => {
   const inputText = document.getElementById('add-text').value;
   document.getElementById('add-text').value = ''; // テキストの値を初期化
@@ -12,7 +13,7 @@ const deleteFromImcompleteList = (target) => {
   document.getElementById('incomplete-list').removeChild(target);
 };
 
-// 未完了リストに追加する関数
+// 未完了リストに追加
 const createIncompleteList = (text) => {
   // divタグ生成
   const div = document.createElement('div');
@@ -22,7 +23,7 @@ const createIncompleteList = (text) => {
   const li = document.createElement('li');
   li.innerText = text;
 
-  // buttonタグの生成
+  // 完了ボタンの生成
   const completeButton = document.createElement('button');
   completeButton.innerText = '完了';
   completeButton.addEventListener('click', () => {
@@ -39,7 +40,8 @@ const createIncompleteList = (text) => {
     // liタグを生成
     const li = document.createElement('li');
     li.innerText = text;
-    // buttonタグ生成
+
+    // 戻すボタンの生成
     const backButton = document.createElement('button');
     backButton.innerText = '戻す';
     backButton.addEventListener('click', () => {
@@ -52,7 +54,7 @@ const createIncompleteList = (text) => {
       createIncompleteList(text);
     });
 
-    //divタグの子要素に各要素を設定
+    // divタグの子要素に各要素を設定
     addTarget.appendChild(li);
     addTarget.appendChild(backButton);
 
@@ -60,6 +62,7 @@ const createIncompleteList = (text) => {
     document.getElementById('complete-list').appendChild(addTarget);
   });
 
+  // 削除ボタンの生成
   const deleteButton = document.createElement('button');
   deleteButton.innerText = '削除';
   deleteButton.addEventListener('click', () => {
@@ -76,6 +79,7 @@ const createIncompleteList = (text) => {
   document.getElementById('incomplete-list').appendChild(div);
 };
 
+// TODOの追加ボタン
 document
   .getElementById('add-button')
   .addEventListener('click', () => onClickAdd());
